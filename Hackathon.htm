@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		/* Styling the body element like body color and margin */
+
+		body {
+			
+			margin: 10%;
+                       background-color: black;
+			
+		}
+div#C20-data {
+			background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh86Kwp8kGTzfVAk9X8mM8BvXWcHZvbOBfrV6npwU7-gPoGFa-zoxtXdmi0kJxTS4dEzg&usqp=CAU');
+                         background-repeat: no-repeat;
+                         background-attachment: fixed;
+                         background-size: cover;
+			box-shadow: 20px 20px 20px rgb(224, 165, 215);
+			font-family: Georgia;
+			padding: 25px 25px;
+			margin: 11px;
+			margin-top: 50px;
+		}
+h1.title-C20 {
+			font-size: 35px;
+			color: yellow;
+			text-align: center;
+			text-shadow: 5px 5px 10px black;
+		}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+<script src="app1.js"></script>
+</head>
+<body>
+	<main id="main">
+ <div id="C20-data">
+	<h1>Polymarket Prediction Market</h1>
+        <p>Enter your prediction:</p>
+        <form id="predictionForm">
+            <label for="prediction">Prediction (e.g., Yes or No):</label>
+            <input type="text" id="prediction" name="prediction" required>
+            <button type="submit">Submit Prediction</button>
+        </form>
+        <p id="predictionResult"></p>
+
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            // Connect to the Ethereum node (replace with your own provider)
+            const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY');
+
+            // Replace with the deployed contract address and ABI
+            const contractAddress = '0x1234567890123456789012345678901234567890';
+            const contractABI = [
+                // ... (paste the ABI here)
+            ];
+
+            const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+            // Get the user's prediction
+            const userPrediction = document.getElementById('prediction').value;
+
+            // TODO: Implement logic to send the prediction to the smart contract
+            // For demonstration purposes, display a simple result message
+            const resultMessage = `Your prediction "${userPrediction}" has been submitted.`;
+            document.getElementById('predictionResult').textContent = resultMessage;
+        });
+    </script>
+        </div>
+        </main>
+    </body>
